@@ -8,7 +8,7 @@
             <url-list>
                 <url>
                     <binary>
-                        http://debian.linutronix.de/elbe squeeze main
+                        http://debian.linutronix.de/elbe wheezy main
                     </binary>
                 </url>
             </url-list>
@@ -24,13 +24,23 @@
         </description>
         <buildtype>armhf</buildtype>
         <mirror>
-            <primary_host>archive.raspbian.org</primary_host>
+            <primary_host>mirrordirector.raspbian.org</primary_host>
             <primary_path>/raspbian</primary_path>
             <primary_proto>http</primary_proto>
             <url-list>
                 <url>
                     <binary>
-                        http://archive.raspbian.org/raspbian wheezy main contrib non-free
+                        http://mirrordirector.raspbian.org/raspbian wheezy main contrib non-free rpi
+                    </binary>
+                </url>
+                <url>
+                    <binary>
+                        http://archive.raspberrypi.org/debian wheezy main contrib non-free
+                    </binary>
+                </url>
+                <url>
+                    <binary>
+                        http://debian.linutronix.de/elbe wheezy main
                     </binary>
                 </url>
             </url-list>
@@ -42,7 +52,6 @@
             <size>4G</size>
             <mem>256</mem>
             <interpreter>qemu-system-arm</interpreter>
-            <kinitrd>linux-image-rpi-rpfv</kinitrd>
             <console>ttyAMA0,115200n1</console>
             <machine>versatilepb</machine>
             <NIC>
