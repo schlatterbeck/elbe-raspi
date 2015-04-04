@@ -35,11 +35,6 @@
                 </url>
                 <url>
                     <binary>
-                        http://archive.raspberrypi.org/debian wheezy main contrib non-free
-                    </binary>
-                </url>
-                <url>
-                    <binary>
                         http://debian.linutronix.de/elbe-testing wheezy main
                     </binary>
                 </url>
@@ -73,7 +68,7 @@
                 <label>rfs</label>
                 <mountpoint>/</mountpoint>
                 <fs>
-                    <type>ext2</type>
+                    <type>ext4</type>
                     <tune2fs>-i 0</tune2fs>
                 </fs>
             </bylabel>
@@ -88,6 +83,7 @@
         <norecommend />
         <finetuning>
             <rm>/var/cache/apt/archives/*.deb</rm>
+            <rm>/etc/udev/rules.d/70-persistent-net.rules</rm>
         </finetuning>
         <pkg-list>
             <pkg>raspberrypi-bootloader</pkg>
@@ -98,6 +94,14 @@
             <pkg>vim-nox</pkg>
             <pkg>wget</pkg>
             <pkg>ntp</pkg>
+            <pkg>asterisk</pkg>
+            <pkg>asterisk-dahdi</pkg>
+            <pkg>asterisk-mobile</pkg>
+            <pkg>asterisk-prompt-de</pkg>
+            <pkg>apache2</pkg>
+            <pkg>madplay</pkg>
+            <pkg>fake-hwclock</pkg>
+            <pkg>openvpn</pkg>
         </pkg-list>
     </target>
 </ns0:RootFileSystem>
