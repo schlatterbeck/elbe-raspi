@@ -98,10 +98,16 @@
             <pkg>asterisk-dahdi</pkg>
             <pkg>asterisk-mobile</pkg>
             <pkg>asterisk-prompt-de</pkg>
+            <pkg>asterisk-voicemail</pkg>
             <pkg>apache2</pkg>
             <pkg>madplay</pkg>
             <pkg>fake-hwclock</pkg>
             <pkg>openvpn</pkg>
+            <pkg>git</pkg>
+            <pkg>bluez</pkg>
+            <pkg>bind9</pkg>
+            <pkg>host</pkg>
+            <pkg>isc-dhcp-server</pkg>
         </pkg-list>
     </target>
 </ns0:RootFileSystem>
