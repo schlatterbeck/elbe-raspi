@@ -1,0 +1,16 @@
+#!/bin/sh
+
+cd /boot
+
+cat << EOF > config.txt
+hdmi_safe=1
+hdmi_drive=1
+avoid_safe_mode=1
+EOF
+
+echo "kernel=$(ls -1 vmlinuz* | head -1)"   >> config.txt
+echo "initramfs $(ls -1 initrd* | head -1)" >> config.txt
+
+# Must copy dtb to /boot, we don't (want to) know the kernel version in
+# the elbe config so we do this here.
+cp /usr/lib/linux-image-*/bcm2708-rpi-b.dtb /boot

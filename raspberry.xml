@@ -8,13 +8,39 @@
             <url-list>
                 <url>
                     <binary>
-                        http://debian.linutronix.de/elbe-testing wheezy main
+                        http://debian.linutronix.de/elbe stretch main
                     </binary>
+		    <key>
+			http://debian.linutronix.de/elbe/elbe-repo.pub
+		    </key>
                 </url>
+		<url>
+		  <binary>
+		    http://debian.linutronix.de/elbe-common stretch main
+		  </binary>
+		  <key>
+		    http://debian.linutronix.de/elbe/elbe-repo.pub
+		  </key>
+		</url>
             </url-list>
         </mirror>
         <noauth/>
-        <suite>wheezy</suite>
+        <suite>stretch</suite>
+	<pkg-list>
+	  <pkg>openssh-server</pkg>
+	</pkg-list>
+	<portforwarding>
+	  <forward>
+	    <proto>tcp</proto>
+	    <buildenv>22</buildenv>
+	    <host>5022</host>
+	  </forward>
+	  <forward>
+	    <proto>tcp</proto>
+	    <buildenv>7588</buildenv>
+	    <host>7587</host>
+	  </forward>
+	</portforwarding>
     </initvm>
     <project>
         <name>raspberrypi</name>
@@ -30,18 +56,23 @@
             <url-list>
                 <url>
                     <binary>
-                        http://mirrordirector.raspbian.org/raspbian wheezy main contrib non-free rpi
+                        http://mirrordirector.raspbian.org/raspbian stretch main contrib non-free rpi firmware
                     </binary>
                 </url>
                 <url>
                     <binary>
-                        http://debian.linutronix.de/elbe-testing wheezy main
+                        http://archive.raspberrypi.org/debian/ stretch main
+                    </binary>
+                </url>
+                <url>
+                    <binary>
+                        http://debian.linutronix.de/elbe stretch main
                     </binary>
                 </url>
             </url-list>
         </mirror>
         <noauth />
-        <suite>wheezy</suite>
+        <suite>stretch</suite>
     </project>
     <target>
         <hostname>raspi</hostname>
@@ -84,9 +115,12 @@
         <finetuning>
             <rm>/var/cache/apt/archives/*.deb</rm>
             <rm>/etc/udev/rules.d/70-persistent-net.rules</rm>
+            <command>/bin/gencfg</command>
         </finetuning>
         <pkg-list>
-            <pkg>raspberrypi-bootloader</pkg>
+            <pkg>raspberrypi-bootloader-nokernel</pkg>
+            <pkg>linux-image-rpi</pkg>
+            <pkg>libraspberrypi-bin</pkg>
             <pkg>raspi-config</pkg>
             <pkg>openssh-server</pkg>
             <pkg>less</pkg>
